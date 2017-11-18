@@ -1,0 +1,24 @@
+{
+  "name": "liriapp",
+  "version": "1.0.0",
+  "description": "Siri's sister app Liri",
+  "main": "keys.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kmasteller/sisterLiriApp.git"
+  },
+  "author": "Kenny Quinn, Esq.",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kmasteller/sisterLiriApp/issues"
+  },
+  "homepage": "https://github.com/Kmasteller/sisterLiriApp#readme",
+  "dependencies": {
+    "node-spotify-api": "^1.0.7",
+    "request": "^2.83.0",
+    "twitter": "^1.7.1"
+  }
+}
