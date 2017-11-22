@@ -22,14 +22,11 @@ switch (userInput) {
         getOMDB();
         break;
     case "do-what-it-says":
-        getCommand();
+        doCommand();
         break;
     default: 
 
 }
-
-
-  });
 
 function getTwitter(tKeys) {
 
@@ -41,8 +38,10 @@ function getTwitter(tKeys) {
         access_token_key: tKeys.access_token_key,
         access_token_secret: tKeys.access_token_secret
     });
+}
 
 client.get("statuses/user_timeline", function (error, tweets, response) {
+
     if (!error) {
         console.log(tweets);
     }
@@ -50,4 +49,4 @@ client.get("statuses/user_timeline", function (error, tweets, response) {
     tweets.forEach(function(t) {
         console.log(t);
     });
-};
+})
