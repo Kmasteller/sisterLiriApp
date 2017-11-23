@@ -1,6 +1,5 @@
 var tKeys = require("./keys.js");
 
-console.log("--------------------------");
 console.log(tKeys);
 console.log("--------------------------");
 
