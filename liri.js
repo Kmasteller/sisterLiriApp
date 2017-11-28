@@ -1,6 +1,12 @@
 var keys = require("./keys.js");
 
+var spotKeys = require("./spotKeys.js");
+
+var fs = require("fs");
+
 console.log(keys);
+console.log("--------------------------");
+console.log(spotKeys);
 console.log("--------------------------");
 
 var request = require('request');
@@ -36,26 +42,45 @@ var artistName = function(artist) {
 
 var getSpotify = function(songName) {
 
+    // if (songName == null) {
+    //     songName = "shadowboxin";
+    // }
+
+    // request("https://api.spotify.com/v1/search?q=" + songName + "&type=track", function(error, response, body) {
+    //     if(!error && response.statusCode == 200) {
+    //         jsonBody = JSON.parse(body);
+    //         console.log('================================');
+    //         console.log('Artist: ' + jsonBody.tracks.items[0].artists[0].name);
+    //         console.log('Song: ' + jsonBody.tracks.items[0].name);
+    //         console.log('Preview Link: ' + jsonBody.tracks.items[0].preview_url);
+    //         console.log('Album: ' + jsonBody.tracks.items[0].album.name);
+    //         console.log('================================');
+    //         fs.appendFile("terminal.log", songName), function(err) {
+    //             if (err) throw err;
+    //         }
+    //     }
+    // })
+
     spotify.search({ type: "track", query: songName}, function(err, data) {
         if ( err ) {
             console.log(err);
             return;
         }
 
-        // var songs = data.tracks.items;
-        // for(var i=0; i<songs.length; i++) {
-        //     console.log[i];
-        //     console.log("Artist(s): " + songs[i].artists.map(artistName));
-        //     console.log("Song name: " + songs[i].preview_url);
-        //     console.log("Album: " + songs[i].album.name);
-        //     console.log("=========================")
-        // }
+        var songs = data.tracks.items;
+        for(var i=0; i<songs.length; i++) {
+            console.log[i];
+            console.log("Artist(s): " + songs[i].artists.map(artistName));
+            console.log("Song name: " + songs[i].preview_url);
+            console.log("Album: " + songs[i].album.name);
+            console.log("=========================")
+        }
         console.log(data); 
     });
 }
 
 var getMovie = function(movieName) {
-    request("http://www.omdbapi.com/?t=pulp+fiction&y=&plot=short&r=json", function (error, response, body) {
+    request("http://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&r=json", function (error, response, body) {
     if (!error && response.statusCode == 200) {
             var jsonData = JSON.parse(body);
             console.log("Title: " + jsonData.Title);
@@ -81,7 +106,7 @@ var doCommand = function() {
         if (dataArr.length == 2) {
             pick(dataArr[0], dataArr[1]);
         } else if (dataArr.length == 1) {
-            prick(dataArr[0]);
+            pick(dataArr[0]);
         }
     });
 }
