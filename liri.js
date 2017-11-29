@@ -13,7 +13,7 @@ var request = require('request');
 
 var Twitter = require("twitter");
 
-var spotify = require("spotify");
+var Spotify = require("node-spotify-api");
 
 var getTwitter = function() {
 
@@ -39,6 +39,8 @@ var getTwitter = function() {
 var artistName = function(artist) {
     return artist.name;
 }
+
+var spotify = new Spotify(spotKeys);
 
 var getSpotify = function(songName) {
 
@@ -75,7 +77,7 @@ var getSpotify = function(songName) {
             console.log("Album: " + songs[i].album.name);
             console.log("=========================")
         }
-        console.log(data); 
+        // console.log(data); 
     });
 }
 
