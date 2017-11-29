@@ -1,3 +1,4 @@
+// Please ignore any code I left commented out!!  Thanks.
 var keys = require("./keys.js");
 
 var spotKeys = require("./spotKeys.js");
@@ -82,9 +83,10 @@ var getSpotify = function(songName) {
 }
 
 var getMovie = function(movieName) {
-    request("http://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&r=json", function (error, response, body) {
+    var requestURL = "http://www.omdbapi.com/?t=" + movieName + "&tomatoes=true&y=&plot=short&r=json&apikey=40e9cece";
+    request(requestURL, function (error, response, data) {
     if (!error && response.statusCode == 200) {
-            var jsonData = JSON.parse(body);
+            var jsonData = JSON.parse(data);
             console.log("Title: " + jsonData.Title);
             console.log("year: " + jsonData.Year);
             console.log("Rated: " + jsonData.Rated);
