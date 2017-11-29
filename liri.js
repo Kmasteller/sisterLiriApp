@@ -109,15 +109,15 @@ var doCommand = function() {
     fs.readFile("random.txt", "utf8", function(err, data) {
         if (err) throw err;
         
-        var dataArr = data.split(", ");
+        var dataArr = data.split(",");
 
-        var random1 = dataArr[0];
-        var random2 = dataArr[1];
+        // var random1 = dataArr[0];
+        // var random2 = dataArr[1];
         
         if (dataArr.length == 2) {
-            pick(dataArr[0], dataArr[1]);
+           select(dataArr[0], dataArr[1]);
         } else if (dataArr.length == 1) {
-            pick(dataArr[0]);
+            select(dataArr[0]);
         }
     });
 }
