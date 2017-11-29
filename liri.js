@@ -83,6 +83,10 @@ var getSpotify = function(songName) {
 }
 
 var getMovie = function(movieName) {
+    if (arguments.movieName == undefined) {
+        movieName = "Mr. Nobody";
+    }
+
     var requestURL = "http://www.omdbapi.com/?t=" + movieName + "&tomatoes=true&y=&plot=short&r=json&apikey=40e9cece";
     request(requestURL, function (error, response, data) {
     if (!error && response.statusCode == 200) {
@@ -106,6 +110,9 @@ var doCommand = function() {
         if (err) throw err;
         
         var dataArr = data.split(", ");
+
+        var random1 = dataArr[0];
+        var random2 = dataArr[1];
         
         if (dataArr.length == 2) {
             pick(dataArr[0], dataArr[1]);
