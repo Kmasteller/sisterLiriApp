@@ -5,11 +5,6 @@ var spotKeys = require("./spotKeys.js");
 
 var fs = require("fs");
 
-console.log(keys);
-console.log("--------------------------");
-console.log(spotKeys);
-console.log("--------------------------");
-
 var request = require('request');
 
 var Twitter = require("twitter");
